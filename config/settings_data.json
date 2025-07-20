@@ -1,0 +1,237 @@
+{
+  "current": {
+    "sections": {
+      "hero-beauty": {
+        "type": "hero-beauty",
+        "settings": {
+          "badge_text": "Women Only Studio",
+          "title_line_1": "Professional",
+          "title_line_2": "Brazilian Waxing",
+          "title_line_3": "& Threading",
+          "description": "Experience luxury beauty treatments in a comfortable, women-only environment. Expert Brazilian waxing, threading, and body wax services in Montreal.",
+          "primary_button_text": "Book Appointment",
+          "secondary_button_text": "View Services",
+          "offer_percentage": "10%",
+          "offer_text": "OFF First Visit",
+          "feature_1_title": "Expert Care",
+          "feature_1_text": "Professional techniques",
+          "feature_2_title": "Safe & Clean",
+          "feature_2_text": "Hygienic environment",
+          "feature_3_title": "By Appointment",
+          "feature_3_text": "Flexible scheduling"
+        }
+      },
+      "services-beauty": {
+        "type": "services-beauty",
+        "blocks": {
+          "service-1": {
+            "type": "service",
+            "settings": {
+              "icon": "heart",
+              "title": "Brazilian Waxing",
+              "description": "Complete Brazilian wax service with premium wax for sensitive skin. Professional technique ensuring comfort and long-lasting results.",
+              "price": "From $25",
+              "features": "Premium wax, Gentle technique, Long-lasting results, Aftercare included"
+            }
+          },
+          "service-2": {
+            "type": "service",
+            "settings": {
+              "icon": "sparkles",
+              "title": "Body Waxing",
+              "description": "Full body waxing services including legs, arms, underarms, back, and bikini line. Smooth, professional results every time.",
+              "price": "From $5",
+              "features": "Full body coverage, Quality wax, Expert application, Smooth finish"
+            }
+          },
+          "service-3": {
+            "type": "service",
+            "settings": {
+              "icon": "eye",
+              "title": "Face Threading",
+              "description": "Precise eyebrow shaping and facial hair removal using traditional threading technique for perfect definition.",
+              "price": "From $3",
+              "features": "Precise shaping, No chemicals, Perfect definition, Quick service"
+            }
+          },
+          "service-4": {
+            "type": "service",
+            "settings": {
+              "icon": "zap",
+              "title": "Face Waxing",
+              "description": "Gentle facial waxing for eyebrows, upper lip, chin, and cheeks. Smooth results with minimal irritation.",
+              "price": "From $3",
+              "features": "Gentle formula, Smooth results, Minimal irritation, Professional care"
+            }
+          }
+        },
+        "block_order": ["service-1", "service-2", "service-3", "service-4"],
+        "settings": {
+          "title": "Our Premium Services",
+          "description": "Professional beauty treatments in a comfortable, women-only environment. Each service is performed with the highest standards of hygiene and care.",
+          "show_cta": true,
+          "cta_title": "Special Combo Packages Available",
+          "cta_description": "Save more with our carefully curated service combinations",
+          "cta_button_text": "View Pricing"
+        }
+      },
+      "pricing-beauty": {
+        "type": "pricing-beauty",
+        "blocks": {
+          "combo-1": {
+            "type": "combo",
+            "settings": {
+              "title": "Face Threading Combo",
+              "price": 20,
+              "original_price": 26,
+              "popular": false,
+              "services": "Forehead threading, Chin threading, Upper lips threading, Sideburns threading, Chicks threading, Eyebrows threading"
+            }
+          },
+          "combo-2": {
+            "type": "combo",
+            "settings": {
+              "title": "Face Waxing Combo",
+              "price": 25,
+              "original_price": 31,
+              "popular": true,
+              "services": "Forehead waxing, Chin waxing, Upper lips waxing, Sideburns waxing, Chicks waxing, Eyebrows threading"
+            }
+          },
+          "combo-3": {
+            "type": "combo",
+            "settings": {
+              "title": "Body Waxing Combo",
+              "price": 45,
+              "original_price": 55,
+              "popular": false,
+              "services": "Full legs waxing, Full arms waxing, Under arms waxing, Eyebrows threading"
+            }
+          },
+          "combo-4": {
+            "type": "combo",
+            "settings": {
+              "title": "Full Body Waxing Combo",
+              "price": 70,
+              "original_price": 90,
+              "popular": true,
+              "services": "Full legs waxing, Full arms waxing, Under arms waxing, Tummy waxing, Back waxing, Brazilian waxing, Butts waxing"
+            }
+          },
+          "category-1": {
+            "type": "service_category",
+            "settings": {
+              "category_title": "Threading",
+              "services": "Eyebrows:5|Forehead:3|Upper lips:3|Chin:3|Chick:3|Sides:5"
+            }
+          },
+          "category-2": {
+            "type": "service_category",
+            "settings": {
+              "category_title": "Face Wax",
+              "services": "Eyebrows:10|Forehead:4|Upper lips:4|Chin:4|Chick:4|Sides:4|Neck:4|Nose:3"
+            }
+          },
+          "category-3": {
+            "type": "service_category",
+            "settings": {
+              "category_title": "Body Wax",
+              "services": "Full leg:20|Half legs:15|Full arms:15|Half arms:10|Underarms:5|Belly button:5|Tummy:10|Full back:12|Half back:8|Shoulders:5|Back neck:3|Butt:10|Bikini:10|Bikini line:15|Brazilian:25"
+            }
+          }
+        },
+        "block_order": ["combo-1", "combo-2", "combo-3", "combo-4", "category-1", "category-2", "category-3"],
+        "settings": {
+          "title": "Pricing & Packages",
+          "description": "Competitive pricing with special combo packages. Get 10% off on all combos for your first visit!",
+          "show_combos": true,
+          "combo_title": "Combo Packages",
+          "show_individual": true,
+          "show_offer": true,
+          "offer_title": "First Visit Special",
+          "offer_subtitle": "Get 10% OFF on all combo packages",
+          "offer_description": "Valid for new clients only. Book your appointment today!",
+          "offer_button_text": "Claim Your Discount"
+        }
+      },
+      "about-beauty": {
+        "type": "about-beauty",
+        "blocks": {
+          "feature-1": {
+            "type": "feature",
+            "settings": {
+              "icon": "shield",
+              "title": "Women Only",
+              "description": "Safe, comfortable environment designed exclusively for women"
+            }
+          },
+          "feature-2": {
+            "type": "feature",
+            "settings": {
+              "icon": "heart",
+              "title": "Expert Care",
+              "description": "Professional esthetician with years of experience"
+            }
+          },
+          "feature-3": {
+            "type": "feature",
+            "settings": {
+              "icon": "award",
+              "title": "Premium Products",
+              "description": "High-quality wax and products for sensitive skin"
+            }
+          },
+          "feature-4": {
+            "type": "feature",
+            "settings": {
+              "icon": "clock",
+              "title": "Flexible Hours",
+              "description": "Appointments available to fit your schedule"
+            }
+          }
+        },
+        "block_order": ["feature-1", "feature-2", "feature-3", "feature-4"],
+        "settings": {
+          "title": "Why Choose Astrid Beauty Home Studio?",
+          "description": "We specialize in providing premium Brazilian waxing and beauty services exclusively for women. Our home studio offers a comfortable, private environment where you can relax and receive professional treatments with the highest standards of care and hygiene.",
+          "show_commitment": true,
+          "commitment_title": "Our Commitment",
+          "commitment_description": "Every treatment is performed with meticulous attention to hygiene and comfort. We use only premium-quality products and maintain the highest standards of cleanliness. Your comfort and satisfaction are our top priorities.",
+          "stat_1_number": "100%",
+          "stat_1_label": "Women Only",
+          "stat_1_sublabel": "Safe & Private",
+          "stat_2_number": "5+",
+          "stat_2_label": "Years",
+          "stat_2_sublabel": "Experience"
+        }
+      },
+      "contact-beauty": {
+        "type": "contact-beauty",
+        "settings": {
+          "title": "Book Your Appointment",
+          "description": "Ready to experience professional Brazilian waxing and beauty treatments? Contact us today to schedule your appointment.",
+          "info_title": "Get In Touch",
+          "phone": "+1 (514) 625-5598",
+          "email": "astridbeauty55@gmail.com",
+          "instagram": "@astridbeauty_montreal",
+          "address": "<p>Opp. Hilton Garden Inn<br>Rue Sherbrooke and Rue Hutchison intersection<br>Montreal, QC</p>",
+          "show_appointment_info": true,
+          "appointment_title": "By Appointment Only",
+          "appointment_description": "We operate exclusively by appointment to ensure personalized attention and privacy for each client.",
+          "appointment_note": "Flexible scheduling available",
+          "form_title": "Quick Booking Form",
+          "form_button_text": "Send Message via WhatsApp",
+          "show_discount_reminder": true,
+          "discount_text": "Get 10% off on all combos for your first visit!"
+        }
+      }
+    },
+    "content_for_index": [
+      "hero-beauty",
+      "services-beauty", 
+      "pricing-beauty",
+      "about-beauty",
+      "contact-beauty"
+    ]
+  }
+}
