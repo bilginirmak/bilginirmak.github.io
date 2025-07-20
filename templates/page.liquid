@@ -1,0 +1,11 @@
+{{ page.content }}
+
+{% if page.handle == 'services' %}
+  {% section 'services-beauty' %}
+{% elsif page.handle == 'pricing' %}
+  {% section 'pricing-beauty' %}
+{% elsif page.handle == 'about' %}
+  {% section 'about-beauty' %}
+{% elsif page.handle == 'contact' %}
+  {% section 'contact-beauty' %}
+{% endif %}

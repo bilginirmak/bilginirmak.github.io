@@ -1,0 +1,87 @@
+/* Announcement Bar Styles */
+
+.announcement-bar {
+  background: var(--gradient-base-background-1);
+  color: var(--color-base-text);
+  position: relative;
+  z-index: 1;
+}
+
+.announcement-bar__link {
+  display: block;
+  width: 100%;
+  padding: 1rem 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.announcement-bar__link:hover {
+  color: var(--color-base-accent-1);
+}
+
+.announcement-bar__message {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
+.announcement-bar__message span {
+  margin-right: 1rem;
+}
+
+.color-accent-1 {
+  background: var(--color-base-accent-1);
+  color: white;
+}
+
+.color-accent-2 {
+  background: var(--color-base-accent-2);
+  color: white;
+}
+
+.color-background-1 {
+  background: var(--color-base-background-1);
+  color: var(--color-base-text);
+}
+
+.color-background-2 {
+  background: var(--color-base-background-2);
+  color: var(--color-base-text);
+}
+
+.color-inverse {
+  background: var(--color-base-text);
+  color: var(--color-base-background-1);
+}
+
+.h5 {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.center {
+  text-align: center;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.link--text {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+.focus-inset:focus {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+  outline-offset: -0.2rem;
+}
+
+.animate-arrow svg {
+  transition: transform 0.2s ease;
+}
+
+.animate-arrow:hover svg {
+  transform: translateX(0.4rem);
+}

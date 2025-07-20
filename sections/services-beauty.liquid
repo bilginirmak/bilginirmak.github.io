@@ -1,0 +1,237 @@
+{{ 'section-services-beauty.css' | asset_url | stylesheet_tag }}
+
+<section id="services" class="services-beauty">
+  <div class="page-width">
+    <div class="section-header">
+      <h2 class="section-title">{{ section.settings.title | default: 'Our Premium Services' }}</h2>
+      <p class="section-description">
+        {{ section.settings.description | default: 'Professional beauty treatments in a comfortable, women-only environment. Each service is performed with the highest standards of hygiene and care.' }}
+      </p>
+    </div>
+
+    <div class="services-grid">
+      {% for block in section.blocks %}
+        <div class="service-card" {{ block.shopify_attributes }}>
+          <div class="service-icon">
+            {% case block.settings.icon %}
+              {% when 'heart' %}
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              {% when 'sparkles' %}
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+              {% when 'eye' %}
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              {% when 'zap' %}
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="13,2 3,14 12,14 11,22 21,10 12,10 13,2"></polygon>
+                </svg>
+              {% else %}
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+            {% endcase %}
+          </div>
+          
+          <h3 class="service-title">{{ block.settings.title }}</h3>
+          <p class="service-description">{{ block.settings.description }}</p>
+          <div class="service-price">{{ block.settings.price }}</div>
+          
+          {% if block.settings.features != blank %}
+            <ul class="service-features">
+              {% assign features = block.settings.features | split: ',' %}
+              {% for feature in features %}
+                <li>{{ feature | strip }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.show_cta %}
+      <div class="services-cta">
+        <h3 class="cta-title">{{ section.settings.cta_title | default: 'Special Combo Packages Available' }}</h3>
+        <p class="cta-description">{{ section.settings.cta_description | default: 'Save more with our carefully curated service combinations' }}</p>
+        <a href="#pricing" class="btn btn-primary scroll-link">
+          {{ section.settings.cta_button_text | default: 'View Pricing' }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scroll for services CTA
+    document.querySelectorAll('.services-beauty .scroll-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Services Beauty",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Our Premium Services"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Section Description",
+      "default": "Professional beauty treatments in a comfortable, women-only environment. Each service is performed with the highest standards of hygiene and care."
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "Show Call to Action",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_title",
+      "label": "CTA Title",
+      "default": "Special Combo Packages Available"
+    },
+    {
+      "type": "text",
+      "id": "cta_description",
+      "label": "CTA Description",
+      "default": "Save more with our carefully curated service combinations"
+    },
+    {
+      "type": "text",
+      "id": "cta_button_text",
+      "label": "CTA Button Text",
+      "default": "View Pricing"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Service",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "heart",
+              "label": "Heart"
+            },
+            {
+              "value": "sparkles",
+              "label": "Sparkles"
+            },
+            {
+              "value": "eye",
+              "label": "Eye"
+            },
+            {
+              "value": "zap",
+              "label": "Zap"
+            }
+          ],
+          "default": "heart"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Service Title",
+          "default": "Brazilian Waxing"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Service Description",
+          "default": "Complete Brazilian wax service with premium wax for sensitive skin."
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Starting Price",
+          "default": "From $25"
+        },
+        {
+          "type": "text",
+          "id": "features",
+          "label": "Features (comma separated)",
+          "default": "Premium wax, Gentle technique, Long-lasting results, Aftercare included"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Services Beauty",
+      "blocks": [
+        {
+          "type": "service",
+          "settings": {
+            "icon": "heart",
+            "title": "Brazilian Waxing",
+            "description": "Complete Brazilian wax service with premium wax for sensitive skin. Professional technique ensuring comfort and long-lasting results.",
+            "price": "From $25",
+            "features": "Premium wax, Gentle technique, Long-lasting results, Aftercare included"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "icon": "sparkles",
+            "title": "Body Waxing",
+            "description": "Full body waxing services including legs, arms, underarms, back, and bikini line. Smooth, professional results every time.",
+            "price": "From $5",
+            "features": "Full body coverage, Quality wax, Expert application, Smooth finish"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "icon": "eye",
+            "title": "Face Threading",
+            "description": "Precise eyebrow shaping and facial hair removal using traditional threading technique for perfect definition.",
+            "price": "From $3",
+            "features": "Precise shaping, No chemicals, Perfect definition, Quick service"
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "icon": "zap",
+            "title": "Face Waxing",
+            "description": "Gentle facial waxing for eyebrows, upper lip, chin, and cheeks. Smooth results with minimal irritation.",
+            "price": "From $3",
+            "features": "Gentle formula, Smooth results, Minimal irritation, Professional care"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

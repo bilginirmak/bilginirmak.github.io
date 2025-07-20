@@ -1,0 +1,216 @@
+{{ 'section-hero-beauty.css' | asset_url | stylesheet_tag }}
+
+<section id="home" class="hero-beauty">
+  <div class="page-width">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          {{ section.settings.badge_text | default: 'Women Only Studio' }}
+        </div>
+        
+        <h1 class="hero-title">
+          {{ section.settings.title_line_1 | default: 'Professional' }}
+          <span class="title-accent">{{ section.settings.title_line_2 | default: 'Brazilian Waxing' }}</span>
+          <span class="title-secondary">{{ section.settings.title_line_3 | default: '& Threading' }}</span>
+        </h1>
+        
+        <p class="hero-description">
+          {{ section.settings.description | default: 'Experience luxury beauty treatments in a comfortable, women-only environment. Expert Brazilian waxing, threading, and body wax services in Montreal.' }}
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary scroll-link">
+            {{ section.settings.primary_button_text | default: 'Book Appointment' }}
+          </a>
+          <a href="#services" class="btn btn-secondary scroll-link">
+            {{ section.settings.secondary_button_text | default: 'View Services' }}
+          </a>
+        </div>
+
+        <div class="hero-features">
+          <div class="feature-item">
+            <div class="feature-icon feature-icon-primary">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+            </div>
+            <h3>{{ section.settings.feature_1_title | default: 'Expert Care' }}</h3>
+            <p>{{ section.settings.feature_1_text | default: 'Professional techniques' }}</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon feature-icon-secondary">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3>{{ section.settings.feature_2_title | default: 'Safe & Clean' }}</h3>
+            <p>{{ section.settings.feature_2_text | default: 'Hygienic environment' }}</p>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon feature-icon-accent">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12,6 12,12 16,14"></polyline>
+              </svg>
+            </div>
+            <h3>{{ section.settings.feature_3_title | default: 'By Appointment' }}</h3>
+            <p>{{ section.settings.feature_3_text | default: 'Flexible scheduling' }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="image-container">
+          {% if section.settings.hero_image %}
+            {{ section.settings.hero_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: section.settings.hero_image.alt }}
+          {% else %}
+            <img src="https://images.pexels.com/photos/3757951/pexels-photo-3757951.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Professional waxing treatment" loading="lazy">
+          {% endif %}
+        </div>
+        
+        <div class="hero-offer">
+          <div class="offer-content">
+            <div class="offer-percentage">{{ section.settings.offer_percentage | default: '10%' }}</div>
+            <div class="offer-text">{{ section.settings.offer_text | default: 'OFF First Visit' }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scroll for hero buttons
+    document.querySelectorAll('.hero-beauty .scroll-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Hero Beauty",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "Women Only Studio"
+    },
+    {
+      "type": "text",
+      "id": "title_line_1",
+      "label": "Title Line 1",
+      "default": "Professional"
+    },
+    {
+      "type": "text",
+      "id": "title_line_2",
+      "label": "Title Line 2 (Accent)",
+      "default": "Brazilian Waxing"
+    },
+    {
+      "type": "text",
+      "id": "title_line_3",
+      "label": "Title Line 3",
+      "default": "& Threading"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Experience luxury beauty treatments in a comfortable, women-only environment. Expert Brazilian waxing, threading, and body wax services in Montreal."
+    },
+    {
+      "type": "text",
+      "id": "primary_button_text",
+      "label": "Primary Button Text",
+      "default": "Book Appointment"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_text",
+      "label": "Secondary Button Text",
+      "default": "View Services"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "offer_percentage",
+      "label": "Offer Percentage",
+      "default": "10%"
+    },
+    {
+      "type": "text",
+      "id": "offer_text",
+      "label": "Offer Text",
+      "default": "OFF First Visit"
+    },
+    {
+      "type": "header",
+      "content": "Features"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_title",
+      "label": "Feature 1 Title",
+      "default": "Expert Care"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_text",
+      "label": "Feature 1 Text",
+      "default": "Professional techniques"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_title",
+      "label": "Feature 2 Title",
+      "default": "Safe & Clean"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_text",
+      "label": "Feature 2 Text",
+      "default": "Hygienic environment"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_title",
+      "label": "Feature 3 Title",
+      "default": "By Appointment"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_text",
+      "label": "Feature 3 Text",
+      "default": "Flexible scheduling"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Beauty"
+    }
+  ]
+}
+{% endschema %}

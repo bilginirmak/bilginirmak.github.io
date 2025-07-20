@@ -1,0 +1,258 @@
+{{ 'section-about-beauty.css' | asset_url | stylesheet_tag }}
+
+<section id="about" class="about-beauty">
+  <div class="page-width">
+    <div class="about-content">
+      <div class="about-text">
+        <div class="about-header">
+          <h2 class="section-title">{{ section.settings.title | default: 'Why Choose Astrid Beauty Home Studio?' }}</h2>
+          <p class="section-description">
+            {{ section.settings.description | default: 'We specialize in providing premium Brazilian waxing and beauty services exclusively for women. Our home studio offers a comfortable, private environment where you can relax and receive professional treatments with the highest standards of care and hygiene.' }}
+          </p>
+        </div>
+
+        <div class="about-features">
+          {% for block in section.blocks %}
+            {% if block.type == 'feature' %}
+              <div class="feature-item" {{ block.shopify_attributes }}>
+                <div class="feature-icon">
+                  {% case block.settings.icon %}
+                    {% when 'shield' %}
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                      </svg>
+                    {% when 'heart' %}
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                      </svg>
+                    {% when 'award' %}
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="8" r="7"></circle>
+                        <polyline points="8.21,13.89 7,23 12,20 17,23 15.79,13.88"></polyline>
+                      </svg>
+                    {% when 'clock' %}
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12,6 12,12 16,14"></polyline>
+                      </svg>
+                    {% else %}
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                      </svg>
+                  {% endcase %}
+                </div>
+                <h3 class="feature-title">{{ block.settings.title }}</h3>
+                <p class="feature-description">{{ block.settings.description }}</p>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        {% if section.settings.show_commitment %}
+          <div class="about-commitment">
+            <h3 class="commitment-title">{{ section.settings.commitment_title | default: 'Our Commitment' }}</h3>
+            <p class="commitment-description">
+              {{ section.settings.commitment_description | default: 'Every treatment is performed with meticulous attention to hygiene and comfort. We use only premium-quality products and maintain the highest standards of cleanliness. Your comfort and satisfaction are our top priorities.' }}
+            </p>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="about-image">
+        <div class="image-container">
+          {% if section.settings.about_image %}
+            {{ section.settings.about_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: section.settings.about_image.alt }}
+          {% else %}
+            <img src="https://images.pexels.com/photos/3757957/pexels-photo-3757957.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Professional beauty treatment environment" loading="lazy">
+          {% endif %}
+        </div>
+        
+        <div class="about-stat about-stat-1">
+          <div class="stat-content">
+            <div class="stat-number">{{ section.settings.stat_1_number | default: '100%' }}</div>
+            <div class="stat-label">{{ section.settings.stat_1_label | default: 'Women Only' }}</div>
+            <div class="stat-sublabel">{{ section.settings.stat_1_sublabel | default: 'Safe & Private' }}</div>
+          </div>
+        </div>
+
+        <div class="about-stat about-stat-2">
+          <div class="stat-content">
+            <div class="stat-number">{{ section.settings.stat_2_number | default: '5+' }}</div>
+            <div class="stat-label">{{ section.settings.stat_2_label | default: 'Years' }}</div>
+            <div class="stat-sublabel">{{ section.settings.stat_2_sublabel | default: 'Experience' }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About Beauty",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Why Choose Astrid Beauty Home Studio?"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Section Description",
+      "default": "We specialize in providing premium Brazilian waxing and beauty services exclusively for women. Our home studio offers a comfortable, private environment where you can relax and receive professional treatments with the highest standards of care and hygiene."
+    },
+    {
+      "type": "image_picker",
+      "id": "about_image",
+      "label": "About Image"
+    },
+    {
+      "type": "header",
+      "content": "Statistics"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_number",
+      "label": "Stat 1 Number",
+      "default": "100%"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_label",
+      "label": "Stat 1 Label",
+      "default": "Women Only"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_sublabel",
+      "label": "Stat 1 Sublabel",
+      "default": "Safe & Private"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_number",
+      "label": "Stat 2 Number",
+      "default": "5+"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_label",
+      "label": "Stat 2 Label",
+      "default": "Years"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_sublabel",
+      "label": "Stat 2 Sublabel",
+      "default": "Experience"
+    },
+    {
+      "type": "header",
+      "content": "Commitment Section"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_commitment",
+      "label": "Show Commitment Section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "commitment_title",
+      "label": "Commitment Title",
+      "default": "Our Commitment"
+    },
+    {
+      "type": "textarea",
+      "id": "commitment_description",
+      "label": "Commitment Description",
+      "default": "Every treatment is performed with meticulous attention to hygiene and comfort. We use only premium-quality products and maintain the highest standards of cleanliness. Your comfort and satisfaction are our top priorities."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            {
+              "value": "shield",
+              "label": "Shield"
+            },
+            {
+              "value": "heart",
+              "label": "Heart"
+            },
+            {
+              "value": "award",
+              "label": "Award"
+            },
+            {
+              "value": "clock",
+              "label": "Clock"
+            }
+          ],
+          "default": "shield"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Feature Title",
+          "default": "Women Only"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Feature Description",
+          "default": "Safe, comfortable environment designed exclusively for women"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Beauty",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "shield",
+            "title": "Women Only",
+            "description": "Safe, comfortable environment designed exclusively for women"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "heart",
+            "title": "Expert Care",
+            "description": "Professional esthetician with years of experience"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "award",
+            "title": "Premium Products",
+            "description": "High-quality wax and products for sensitive skin"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "clock",
+            "title": "Flexible Hours",
+            "description": "Appointments available to fit your schedule"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

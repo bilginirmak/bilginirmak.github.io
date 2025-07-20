@@ -1,0 +1,146 @@
+{{ 'section-footer.css' | asset_url | stylesheet_tag }}
+
+<footer class="footer-beauty">
+  <div class="page-width">
+    <div class="footer-content">
+      <!-- Brand -->
+      <div class="footer-column">
+        <div class="footer-logo">
+          <span class="logo-text">ASTRID</span>
+          <span class="logo-subtitle">BEAUTY HOME STUDIO</span>
+        </div>
+        <p class="footer-description">
+          Professional Brazilian waxing and threading services for women only. 
+          Experience luxury treatments in a comfortable, private environment.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-column">
+        <h3 class="footer-title">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="{{ routes.root_url }}">Home</a></li>
+          <li><a href="#services" class="scroll-link">Services</a></li>
+          <li><a href="#pricing" class="scroll-link">Pricing</a></li>
+          <li><a href="#about" class="scroll-link">About</a></li>
+          <li><a href="#contact" class="scroll-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-column">
+        <h3 class="footer-title">Services</h3>
+        <ul class="footer-links">
+          <li>Brazilian Waxing</li>
+          <li>Body Waxing</li>
+          <li>Face Threading</li>
+          <li>Face Waxing</li>
+          <li>Combo Packages</li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-column">
+        <h3 class="footer-title">Contact</h3>
+        <div class="footer-contact">
+          <div class="contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 1 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 1 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>{{ section.settings.phone | default: '+1 (514) 625-5598' }}</span>
+          </div>
+          <div class="contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>{{ section.settings.email | default: 'astridbeauty55@gmail.com' }}</span>
+          </div>
+          <div class="contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M8 21l4-4 4 4"></path>
+            </svg>
+            <span>{{ section.settings.instagram | default: '@astridbeauty_montreal' }}</span>
+          </div>
+          <div class="contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>{{ section.settings.address | default: 'Sherbrooke & Hutchison<br>Montreal, QC' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="footer-divider">
+
+    <div class="footer-bottom">
+      <div class="footer-love">
+        <span>Made with</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        <span>for women's beauty and comfort</span>
+      </div>
+      <p class="footer-copyright">
+        © {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved. | Women Only Studio | By Appointment Only
+      </p>
+      <p class="footer-description-small">
+        Professional Brazilian waxing, threading, and beauty services in Montreal, Quebec
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Smooth scroll for footer links
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.footer .scroll-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone Number",
+      "default": "+1 (514) 625-5598"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "astridbeauty55@gmail.com"
+    },
+    {
+      "type": "text",
+      "id": "instagram",
+      "label": "Instagram Handle",
+      "default": "@astridbeauty_montreal"
+    },
+    {
+      "type": "richtext",
+      "id": "address",
+      "label": "Address",
+      "default": "<p>Sherbrooke & Hutchison<br>Montreal, QC</p>"
+    }
+  ]
+}
+{% endschema %}
